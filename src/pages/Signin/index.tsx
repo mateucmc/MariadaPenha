@@ -7,11 +7,11 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
-import { useNavigation} from '@react-navigation/native'
+import {useNavigation} from '@react-navigation/native';
 
 export default function UserProfileScreen() {
   const navigation = useNavigation();
-  
+
   const [description, setDescription] = useState('');
 
   return (
@@ -42,9 +42,7 @@ export default function UserProfileScreen() {
 
         <TouchableOpacity
           style={styles.customButton}
-          onPress={() => {
-            navigation.navigate('Home')
-          }}>
+          onPress={() => navigation.navigate('Home')}>
           <Text style={styles.buttonText}>Enviar</Text>
         </TouchableOpacity>
       </View>
@@ -82,7 +80,7 @@ const styles = StyleSheet.create({
     height: 100,
     borderRadius: 50,
     marginRight: 20,
-    marginBottom: 60
+    marginBottom: 60,
   },
   userName: {
     fontSize: 24,
@@ -120,7 +118,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     shadowColor: 'black',
-    shadowOffset: { width: 0, height: 5 },
+    shadowOffset: {width: 0, height: 5},
     shadowOpacity: 0.5,
     shadowRadius: 2,
     marginTop: 10, // Ajuste do marginTop para dar espaço acima do botão

@@ -1,17 +1,22 @@
 // LoginScreen.js
 import React from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
-import { useNavigation} from '@react-navigation/native'
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  TouchableHighlight,
+  StyleSheet,
+  Image,
+} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 
 const LoginScreen = () => {
   const navigation = useNavigation();
   return (
     <View style={styles.background}>
       <View style={styles.container}>
-        <Image
-          source={require('./img/MariadaPenha.png')} 
-          style={styles.logo}
-        />
+        <Image source={require('./img/MariadaPenha.png')} style={styles.logo} />
         <Text style={styles.headerText}>Para começar, faça seu login.</Text>
         <View style={styles.inputContainer}>
           <TextInput
@@ -28,12 +33,17 @@ const LoginScreen = () => {
             secureTextEntry
           />
         </View>
-        <TouchableOpacity 
-        style={styles.loginButton}
-        onPress={() => navigation.navigate('SignIn')}
-        >
+        <TouchableOpacity
+          style={styles.loginButton}
+          onPress={() => navigation.navigate('SignIn')}>
           <Text style={styles.loginButtonText}>Entrar</Text>
         </TouchableOpacity>
+        <TouchableHighlight
+          style={styles.signupButton}
+          onPress={() => navigation.navigate('Singup')}
+          underlayColor="#fb86af">
+          <Text style={styles.signupButtonText}>Cadastrar-se</Text>
+        </TouchableHighlight>
       </View>
     </View>
   );
@@ -53,8 +63,8 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
   logo: {
-    width: 150, 
-    height: 220, 
+    width: 150,
+    height: 220,
     marginBottom: 40,
   },
   headerText: {
@@ -106,7 +116,29 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: 'center',
   },
-});
 
+  signupButton: {
+    backgroundColor: '#ffff',
+    height: 40,
+    padding: 10,
+    borderRadius: 5,
+    marginTop: 10,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    width: '90%',
+  },
+  signupButtonText: {
+    color: '#DF2B6A',
+    fontSize: 16,
+    textAlign: 'center',
+    justifyContent: 'center',
+  },
+});
 
 export default LoginScreen;
